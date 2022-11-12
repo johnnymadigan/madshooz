@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MadShooz.Api.Data;
-using MadShooz.Api.Models;
+using MadShooz.Api.Models.Entities;
+using MadShooz.Api.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MadShooz.Api.Controllers;
@@ -12,29 +9,38 @@ namespace MadShooz.Api.Controllers;
 [Route("api/[controller]")]
 public class ShoesController : ControllerBase
 {
-    private MadShoozContext _context;
+    private IShoeService _shoeService;
 
-    public ShoesController(MadShoozContext context)
+    public ShoesController(IShoeService shoeService)
     {
-        _context = context;
+        _shoeService = shoeService;
     }
 
-    [HttpGet]
-    public ActionResult<List<Shoe>> GetAllShoes()
+    #region GET
+    [HttpGet] // GET api/shoes
+    public async Task<ActionResult<List<Shoe>>> GetAllShoesAsync()
     {
-        // QUERY
-        var result = _context.Shoes.ToList();
-        if (result == null) result = new List<Shoe>();
+        var result = await _shoeService.GetAllShoesAsync();
+        if (result.Count == 0) return NoContent();
         return Ok(result);
     }
 
-    [HttpPost]
-    public async Task<IActionResult> AddShoe(Shoe shoe, CancellationToken cancellationToken)
+    [HttpGet("{name}")] // GET api/shoes/{name}
+    public async Task<ActionResult<List<Shoe>>> GetShoeAsync(string name)
     {
-        // COMMAND
-        await _context.Shoes.AddAsync(shoe, cancellationToken);
-        await _context.SaveChangesAsync();
+        var result = await _shoeService.GetShoeAsync(name);
+        if (result == null) return NotFound();
+        return Ok(result);
+    }
+    #endregion
+
+    #region POST
+    [HttpPost] // POST api/shoes
+    public async Task<IActionResult> AddShoeAsync(Shoe shoe)
+    {
+        var opSuccessful = await _shoeService.AddShoeAsync(shoe);
+        if (!opSuccessful) return BadRequest("Request body invalid");
         return Ok();
     }
+    #endregion
 }
-
