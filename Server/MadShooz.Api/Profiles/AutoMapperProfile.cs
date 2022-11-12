@@ -11,4 +11,3 @@ public class AutoMapperProfile : Profile
 		CreateMap<Shoe, ShoeDto>().ReverseMap();
 	}
 }
-

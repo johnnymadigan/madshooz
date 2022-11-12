@@ -11,7 +11,9 @@ public class ShoesService : IShoeService
 	private MadShoozContext _context;
     private IMapper _mapper;
 
-    public ShoesService(MadShoozContext context, IMapper mapper)
+    public ShoesService(
+        MadShoozContext context,
+        IMapper mapper)
 	{
 		_context = context;
         _mapper = mapper;
