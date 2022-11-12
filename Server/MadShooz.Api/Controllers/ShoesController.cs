@@ -1,5 +1,4 @@
-﻿using System;
-using MadShooz.Api.Models.Entities;
+﻿using MadShooz.Api.Models.DTOs;
 using MadShooz.Api.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,7 +17,7 @@ public class ShoesController : ControllerBase
 
     #region GET
     [HttpGet] // GET api/shoes
-    public async Task<ActionResult<List<Shoe>>> GetAllShoesAsync()
+    public async Task<ActionResult<List<ShoeDto>>> GetAllShoesAsync()
     {
         var result = await _shoeService.GetAllShoesAsync();
         if (result.Count == 0) return NoContent();
@@ -26,7 +25,7 @@ public class ShoesController : ControllerBase
     }
 
     [HttpGet("{name}")] // GET api/shoes/{name}
-    public async Task<ActionResult<List<Shoe>>> GetShoeAsync(string name)
+    public async Task<ActionResult<List<ShoeDto>>> GetShoeAsync(string name)
     {
         var result = await _shoeService.GetShoeAsync(name);
         if (result == null) return NotFound();
@@ -36,10 +35,16 @@ public class ShoesController : ControllerBase
 
     #region POST
     [HttpPost] // POST api/shoes
-    public async Task<IActionResult> AddShoeAsync(Shoe shoe)
+    public async Task<IActionResult> AddShoeAsync(ShoeDto shoeDto)
     {
-        var opSuccessful = await _shoeService.AddShoeAsync(shoe);
-        if (!opSuccessful) return BadRequest("Request body invalid");
+        try
+        {
+            await _shoeService.AddShoeAsync(shoeDto);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
         return Ok();
     }
     #endregion

@@ -17,6 +17,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +29,8 @@
     <None Remove="Services\" />
     <None Remove="Models\Entities\" />
     <None Remove="Models\DTOs\" />
+    <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+    <None Remove="Profiles\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -35,5 +38,6 @@
     <Folder Include="Services\" />
     <Folder Include="Models\Entities\" />
     <Folder Include="Models\DTOs\" />
+    <Folder Include="Profiles\" />
   </ItemGroup>
 </Project>

@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
+    builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
     builder.Services.AddScoped<IShoeService, ShoesService>();
 

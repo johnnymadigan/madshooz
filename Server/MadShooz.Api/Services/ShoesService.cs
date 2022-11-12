@@ -1,5 +1,6 @@
-﻿using System;
+﻿using AutoMapper;
 using MadShooz.Api.Data;
+using MadShooz.Api.Models.DTOs;
 using MadShooz.Api.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,44 +9,40 @@ namespace MadShooz.Api.Services;
 public class ShoesService : IShoeService
 {
 	private MadShoozContext _context;
+    private IMapper _mapper;
 
-	public ShoesService(MadShoozContext context)
+    public ShoesService(MadShoozContext context, IMapper mapper)
 	{
 		_context = context;
+        _mapper = mapper;
 	}
 
     #region QUERIES
-    public async Task<List<Shoe>> GetAllShoesAsync()
+    public async Task<List<ShoeDto>> GetAllShoesAsync()
 	{
         var result = await _context.Shoes.ToListAsync();
-        // change return to DTO
-        // auto map DTO
-        return result;
+        var dtos = result.Select(s => _mapper.Map<ShoeDto>(s)).ToList();
+        return dtos;
 	}
 
-    public async Task<Shoe?> GetShoeAsync(string name)
+    public async Task<ShoeDto?> GetShoeAsync(string name)
     {
         var result = await _context.Shoes.FirstOrDefaultAsync(s => s.Name.ToLower().Equals(name.ToLower()));
-        // change return to DTO
-        // auto map DTO
-        return result;
+        var dto = _mapper.Map<ShoeDto>(result);
+        return dto;
     }
     #endregion
 
     #region COMMANDS
-    public async Task<bool> AddShoeAsync(Shoe shoe)
+    public async Task AddShoeAsync(ShoeDto shoeDto)
     {
-        bool opSuccessful = true;
+        // fluent validation instead?
+        if (String.IsNullOrWhiteSpace(shoeDto.Name))
+            throw new BadHttpRequestException("'Name' property cannot be empty or whitespace");
 
-        if (shoe.Name == "yeezy") return false;
-
-        // change param to DTO
-        // auto map DTO
-        // fluent validation?
+        var shoe = _mapper.Map<Shoe>(shoeDto);
         await _context.Shoes.AddAsync(shoe);
         await _context.SaveChangesAsync();
-
-        return opSuccessful;
     }
     #endregion
 }
