@@ -1,27 +1,32 @@
 ﻿using MadShooz.Api.Data;
+using MadShooz.Api.Services;
 using Microsoft.EntityFrameworkCore;
 
-var builder = WebApplication.CreateBuilder(args);
-
 // SERVICES: Add services to the dependency injection container.
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-// Add the context w a scoped lifetime (each HTTP request gets its own UoW)
-builder.Services.AddDbContext<MadShoozContext>(
-    options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-var app = builder.Build();
-
-// PIPELINE: Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+var builder = WebApplication.CreateBuilder(args);
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    builder.Services.AddControllers();
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
+
+    builder.Services.AddScoped<IShoeService, ShoesService>();
+
+    // Scoped under the hood (each HTTP request gets its own UoW)
+    builder.Services.AddDbContext<MadShoozContext>(
+        options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 }
 
-app.UseHttpsRedirection();
-app.UseAuthorization();
-app.MapControllers();
-app.Run();
+// PIPELINE: Configure the HTTP request pipeline.
+var app = builder.Build();
+{
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+    }
+
+    app.UseHttpsRedirection();
+    app.UseAuthorization();
+    app.MapControllers();
+    app.Run();
+}
