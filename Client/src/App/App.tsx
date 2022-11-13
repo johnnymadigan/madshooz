@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 
 import Footer from '../Footer/Footer';
 import Slide from '../Slide/Slide';
@@ -7,20 +7,11 @@ import Slide from '../Slide/Slide';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className='noselect'>MAD <i>SHOOZ</i></h1>
       <Slide/>
+      <Slide reverse={true}/>
+      <Slide/>
+      <Slide reverse={true}/>
       <Footer/>
     </div>
   );

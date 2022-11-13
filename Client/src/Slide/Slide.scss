@@ -1,0 +1,23 @@
+
+$scroll-duration: 20s;
+
+.animate {
+	width: 200%; // Causes 2 scroll sets to occupy 100% vw each
+	animation: scroll-infinitely $scroll-duration linear infinite;
+    // Position bar in center of parent wrapper's height
+    top: 50%;
+	transform: translate(0, -50%);
+}
+
+.reverse {
+    animation-direction: reverse;
+    img {
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+    }
+}
+
+@keyframes scroll-infinitely {
+	0% { left: 0; }
+	100% { left: -100%; }
+}
