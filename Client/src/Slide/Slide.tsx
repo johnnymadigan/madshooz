@@ -1,33 +1,20 @@
 import './Slide.scss';
+import { ShoeDto } from '../Shared/types';
+import SlideRow from './SlideRow';
 
-interface Props {
-    set: Array<any>
+interface SlideProps {
+    shoes: ShoeDto[]
 }
 
-function Slide(props: Props) {
-
-    // Duplicate set to give the illusion the slider is infinite
+function Slide(props: SlideProps) {
     return (
-        <>
         <div className="position-relative overflow-hidden animate-wrapper" style={{height: "100px"}}>
             <div className="d-flex position-absolute animate">
-                {SlideSet(props.set)}
-                {SlideSet(props.set)}
+                {/* Duplicate set to give the illusion of an infinite slider */}
+                {SlideRow(props.shoes)}
+                {SlideRow(props.shoes)}
             </div>
         </div>
-        </>
-    );
-}
-
-function SlideSet(set: Array<any>) {
-    return (
-        <>
-        <div className="d-flex justify-content-around w-50">
-        {set.map(e =>
-            <a href="#"><img src={`/img/${e.modelName}.png`} alt="" /></a>
-        )}
-        </div>
-        </>
     );
 }
 
