@@ -1,45 +1,24 @@
 import { useEffect, useState } from 'react';
 import './App.scss';
-
+import { ShoeDto } from '../Shared/types';
+import { GetAllShoes } from '../Shared/ShoeService';
 import Footer from '../Footer/Footer';
 import Slide from '../Slide/Slide';
 
-
 function App() {
-
-  const [ shoes, setShoes] = useState([]);
+  //#region HOOKS
+  const [ shoeCollections, setShoeCollections] = useState<ShoeDto[][]>([]);
   useEffect(() => {
-    const fetchData = async () => {
-      const url = "data.json"; // replace with API endpoint
-      try {
-        const response = await fetch(url, {
-          headers: {
-            /* headers to let client know that we
-            are accessing JSON from a server */
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          }
-        });
-        const jsonData = await response.json();
-
-        let arrays: any = [], size = 4;
-            
-        while (jsonData.length > 0) arrays.push(jsonData.splice(0, size));
-        console.log(arrays);
-
-        setShoes(arrays);
-      } catch(e) {
-        console.log(e);
-      }
-    };
-    
-    fetchData();
+    GetAllShoes()
+    .then(res => setShoeCollections(res))
+    .catch(console.error);
   }, []);
+  //#endregion
 
   return (
     <div className="App">
       <h1 className='noselect'>MAD <i>SHOOZ</i></h1>
-      {shoes.map(set => <Slide set={set}/>)}
+      {shoeCollections.map((collection, index) => <Slide shoes={collection} key={index}/>)}
       <Footer/>
     </div>
   );

@@ -1,3 +1,5 @@
+@import "../Shared/Shared.scss";
+
 .App {
   text-align: center;
 
@@ -12,5 +14,9 @@ h1 {
   color: #444444;
   font-size: 100pt;
   font-weight: 900;
-  margin: 100px 0 100px 0;
+  margin: 30vh 0 30vh 0;
+}
+
+@media (max-width: $media-query-mobile) {
+  h1 { font-size: 40pt; }
 }
