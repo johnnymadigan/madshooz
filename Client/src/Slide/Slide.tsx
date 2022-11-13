@@ -1,8 +1,7 @@
-import React from "react";
 import './Slide.scss';
 
 interface Props {
-    reverse?: boolean
+    set: Array<any>
 }
 
 function Slide(props: Props) {
@@ -10,24 +9,23 @@ function Slide(props: Props) {
     // Duplicate set to give the illusion the slider is infinite
     return (
         <>
-        <div className="position-relative overflow-hidden" style={{height: "100px"}}>
-            <div className={`d-flex position-absolute animate ${(props.reverse) ? "reverse" : ""}`}>
-                {SlideSet()}
-                {SlideSet()}
+        <div className="position-relative overflow-hidden animate-wrapper" style={{height: "100px"}}>
+            <div className="d-flex position-absolute animate">
+                {SlideSet(props.set)}
+                {SlideSet(props.set)}
             </div>
         </div>
         </>
     );
 }
 
-function SlideSet() {
+function SlideSet(set: Array<any>) {
     return (
         <>
         <div className="d-flex justify-content-around w-50">
-            <a href="#"><img src="/img/yeezy-350-oat.png" alt="" /></a>
-            <a href="#"><img src="/img/yeezy-350-oat.png" alt="" /></a>
-            <a href="#"><img src="/img/yeezy-350-oat.png" alt="" /></a>
-            <a href="#"><img src="/img/yeezy-350-oat.png" alt="" /></a>
+        {set.map(e =>
+            <a href="#"><img src={`/img/${e.modelName}.png`} alt="" /></a>
+        )}
         </div>
         </>
     );

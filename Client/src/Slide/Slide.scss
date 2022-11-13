@@ -1,19 +1,32 @@
-
 $scroll-duration: 20s;
 
-.animate {
-	width: 200%; // Causes 2 scroll sets to occupy 100% vw each
-	animation: scroll-infinitely $scroll-duration linear infinite;
-    // Position bar in center of parent wrapper's height
-    top: 50%;
-	transform: translate(0, -50%);
-}
+.animate-wrapper {
+    &:nth-child(odd) {
+        background-color: rgba(0, 0, 0, 0.050);
+        .animate { animation-direction: reverse; }
+        img {
+            -moz-transform: scaleX(-1);
+            -o-transform: scaleX(-1);
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+        }
+    }
 
-.reverse {
-    animation-direction: reverse;
+    .animate {
+        width: 200%; // Causes 2 scroll sets to occupy 100% vw each
+        animation: scroll-infinitely $scroll-duration linear infinite;
+        
+        // Position bar in center of parent wrapper's height
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+
     img {
-        -webkit-transform: scaleX(-1);
-        transform: scaleX(-1);
+        transition: all .2s ease-in-out;
+        &:hover {
+            scale: 1.1;
+            rotate: 3deg;
+        }
     }
 }
 
