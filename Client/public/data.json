@@ -1,74 +1,47 @@
 [
     {
-        "modelName": "yeezy-350-oat"
+        "name": "Yeezy 350 MX Oat",
+        "modelName": "yeezy-350-mx-oat",
+        "cameraPos": {
+            "x": 0.2,
+            "y": 0.2,
+            "z": -0.2
+        }
     },
     {
-        "modelName": "factors"
+        "name": "Factors",
+        "modelName": "factors",
+        "cameraPos": {
+            "x": 0.5,
+            "y": 0.5,
+            "z": 0.5
+        }
     },
     {
-        "modelName": "yeezy-350-oat"
+        "name": "Mercurial Vapor IV Legend",
+        "modelName": "mercurial-vapor-iv-legend",
+        "cameraPos": {
+            "x": -10,
+            "y": 10,
+            "z": -20
+        }
     },
     {
-        "modelName": "factors"
+        "name": "Kawaii Fila",
+        "modelName": "kawaii-fila",
+        "cameraPos": {
+            "x": -1.5,
+            "y": 0.5,
+            "z": 2
+        }
     },
     {
-        "modelName": "yeezy-350-oat"
-    },
-    {
-        "modelName": "factors"
-    },
-    {
-        "modelName": "yeezy-350-oat"
-    },
-    {
-        "modelName": "factors"
-    },
-    {
-        "modelName": "mercurial-vapor-iv-legend"
-    },
-    {
-        "modelName": "kawaii-fila-shoe"
-    },
-    {
-        "modelName": "mercurial-vapor-iv-legend"
-    },
-    {
-        "modelName": "kawaii-fila-shoe"
-    },
-    {
-        "modelName": "mercurial-vapor-iv-legend"
-    },
-    {
-        "modelName": "kawaii-fila-shoe"
-    },
-    {
-        "modelName": "mercurial-vapor-iv-legend"
-    },
-    {
-        "modelName": "kawaii-fila-shoe"
-    },
-    {
-        "modelName": "nike-air-presto-x-off-white"
-    },
-    {
-        "modelName": "yeezy-350-zyon"
-    },
-    {
-        "modelName": "nike-air-presto-x-off-white"
-    },
-    {
-        "modelName": "yeezy-350-zyon"
-    },
-    {
-        "modelName": "nike-air-presto-x-off-white"
-    },
-    {
-        "modelName": "yeezy-350-zyon"
-    },
-    {
-        "modelName": "nike-air-presto-x-off-white"
-    },
-    {
-        "modelName": "yeezy-350-zyon"
+        "name": "Nike Air Presto X Off-White",
+        "modelName": "nike-air-presto-x-off-white",
+        "cameraPos": {
+            "x": -30,
+            "y": 10,
+            "z": 50
+        }
     }
 ]
