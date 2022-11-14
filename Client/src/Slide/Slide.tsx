@@ -2,9 +2,7 @@ import './Slide.scss';
 import { ShoeDto } from '../Shared/types';
 import SlideRow from './SlideRow';
 
-interface SlideProps {
-    shoes: ShoeDto[]
-}
+interface SlideProps { shoes: ShoeDto[] }
 
 function Slide(props: SlideProps) {
     return (

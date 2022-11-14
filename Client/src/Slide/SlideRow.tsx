@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Offcanvas, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { ShoeDto } from "../Shared/types";
-import ShoeCanvas from "../ShoeCanvas/ShoeCanvas";
+import ShoeCanvas from "./ShoeCanvas";
 
 function SlideRow(shoes: ShoeDto[]) {
     //#region HOOKS
@@ -41,10 +41,10 @@ function SlideRow(shoes: ShoeDto[]) {
             backdrop = {true}
             style={{width: "50vw"}}>
             <Offcanvas.Header closeButton>
-            <Offcanvas.Title>{sideBarContent?.modelName}</Offcanvas.Title>
+            <Offcanvas.Title><strong>{sideBarContent?.name}</strong></Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-                <ShoeCanvas/>
+                <ShoeCanvas modelName={sideBarContent?.modelName} cameraPos={sideBarContent?.cameraPos} />
             </Offcanvas.Body>
         </Offcanvas>
         </>
