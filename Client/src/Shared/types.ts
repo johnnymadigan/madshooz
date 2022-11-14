@@ -1,8 +1,13 @@
 export interface ShoeDto {
-    name?:       string;
-    price?:      number;
-    stock?:      number;
+    name: string;
+    price?: number;
+    stock?: number;
     modelName: string;
+    cameraPos: CameraPos;
 }
 
-// TODO make everything required except model name
+export interface CameraPos {
+    x: number;
+    y: number;
+    z: number;
+}
