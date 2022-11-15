@@ -1,7 +1,9 @@
 @import "../Shared/Shared.scss";
 
-.offcanvas { width: 50vw; }
+// Id to take priority over react bootstrap's styling
+
+#off-canvas { width: 50vw; }
 
 @media (max-width: $media-query-mobile) {
-    .offcanvas { width: 100vw; }
+    #off-canvas { width: 100vw; }
 }

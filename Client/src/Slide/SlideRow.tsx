@@ -26,7 +26,7 @@ function SlideRow(shoes: ShoeDto[]) {
                 key={i}
                 placement="bottom"
                 delay={{ show: 200, hide: 1 }}
-                overlay={<Tooltip><strong>{shoe.modelName}</strong></Tooltip>}>
+                overlay={<Tooltip><strong>{shoe.name}</strong></Tooltip>}>
                 <img
                     alt={shoe.modelName}
                     onClick={() => handleShow(shoe)}
@@ -39,7 +39,9 @@ function SlideRow(shoes: ShoeDto[]) {
             onHide = {handleClose}
             placement = {'end'}
             scroll = {true}
-            backdrop = {true}>
+            backdrop = {true}
+            id = "off-canvas"
+            >
             <Offcanvas.Header closeButton>
             <Offcanvas.Title><strong>{sideBarContent?.name}</strong></Offcanvas.Title>
             </Offcanvas.Header>

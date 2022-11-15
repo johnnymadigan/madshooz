@@ -5,7 +5,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 function ShoeCanvas({modelName, cameraPos}) {
   return (
-    <Canvas>
+    <Canvas frameloop="demand">
       <Lighting />
       <ShoeModel modelName={modelName} cameraPos={cameraPos}/>
       <OrbitControls />
@@ -25,9 +25,9 @@ const ShoeModel = ({modelName, cameraPos}) => {
     camera.position.y = cameraPos.y;
     camera.position.z = cameraPos.z;
     /* debugging camera pos per shoe*/
-    // camera.position.x = -10;
-    // camera.position.y = 10;
-    // camera.position.z = -20;
+    // camera.position.x = -0.01;
+    // camera.position.y = 0.01;
+    // camera.position.z = 0.2;
     camera.lookAt(0, 0, 0);
   });
 
