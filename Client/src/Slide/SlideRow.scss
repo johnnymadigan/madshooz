@@ -1,0 +1,7 @@
+@import "../Shared/Shared.scss";
+
+.offcanvas { width: 50vw; }
+
+@media (max-width: $media-query-mobile) {
+    .offcanvas { width: 100vw; }
+}

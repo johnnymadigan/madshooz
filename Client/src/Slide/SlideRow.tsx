@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Offcanvas, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { ShoeDto } from "../Shared/types";
 import ShoeCanvas from "./ShoeCanvas";
+import './SlideRow.scss';
 
 function SlideRow(shoes: ShoeDto[]) {
     //#region HOOKS
@@ -38,8 +39,7 @@ function SlideRow(shoes: ShoeDto[]) {
             onHide = {handleClose}
             placement = {'end'}
             scroll = {true}
-            backdrop = {true}
-            style={{width: "50vw"}}>
+            backdrop = {true}>
             <Offcanvas.Header closeButton>
             <Offcanvas.Title><strong>{sideBarContent?.name}</strong></Offcanvas.Title>
             </Offcanvas.Header>
