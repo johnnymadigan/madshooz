@@ -43,5 +43,41 @@
             "y": 10,
             "z": 50
         }
+    },
+    {
+        "name": "Puma Evo Power",
+        "modelName": "puma-evo-power",
+        "cameraPos": {
+            "x": -0.1,
+            "y": 0.15,
+            "z": 0.2
+        }
+    },
+    {
+        "name": "Glow Green Yeezy Slides",
+        "modelName": "glow-green-yeezy-slides",
+        "cameraPos": {
+            "x": 0,
+            "y": 0.5,
+            "z": 3
+        }
+    },
+    {
+        "name": "Buffalo",
+        "modelName": "buffalo",
+        "cameraPos": {
+            "x": -0.01,
+            "y": 0.01,
+            "z": 0.1
+        }
+    },
+    {
+        "name": "Army Adidas Sneaker",
+        "modelName": "army-adidas-sneaker",
+        "cameraPos": {
+            "x": -0.01,
+            "y": 0.01,
+            "z": 0.2
+        }
     }
 ]
