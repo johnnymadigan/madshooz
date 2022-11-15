@@ -13,10 +13,10 @@ function ShoeCanvas({modelName, cameraPos}) {
   )
 }
 
-const ShoeModel = ({modelName, cameraPos}) => {
+const ShoeModel = async ({modelName, cameraPos}) => {
   if (!modelName) modelName = "factors"; // fallback to default shoe
   let path = `./models/${modelName}.glb`;
-  const gltf = useLoader(GLTFLoader, path)
+  const gltf = await useLoader(GLTFLoader, path)
 
   // access THREE's camera...
   // note: can only useThree inside Canvas component
