@@ -30,7 +30,7 @@ function SlideRow(shoes: ShoeDto[]) {
                 <img
                     alt={shoe.modelName}
                     onClick={() => handleShow(shoe)}
-                    src={`/img/${shoe.modelName}.png`}/>
+                    src={`./img/${shoe.modelName}.png`}/>
                 </OverlayTrigger>
             )}
         </div>

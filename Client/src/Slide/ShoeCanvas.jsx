@@ -15,7 +15,7 @@ function ShoeCanvas({modelName, cameraPos}) {
 
 const ShoeModel = ({modelName, cameraPos}) => {
   if (!modelName) modelName = "factors"; // fallback to default shoe
-  let path = `/models/${modelName}.glb`;
+  let path = `./models/${modelName}.glb`;
   const gltf = useLoader(GLTFLoader, path)
 
   // access THREE's camera...
