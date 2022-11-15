@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/madshooz/static/css/main.4719175b.css",
+    "main.js": "/madshooz/static/js/main.9824ea54.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/madshooz/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/name.jpeg": "/madshooz/static/media/name.f0ae18572ff76a212ebc.jpeg",
+    "index.html": "/madshooz/index.html",
+    "main.4719175b.css.map": "/madshooz/static/css/main.4719175b.css.map",
+    "main.9824ea54.js.map": "/madshooz/static/js/main.9824ea54.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/madshooz/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4719175b.css",
+    "static/js/main.9824ea54.js"
+  ]
+}
