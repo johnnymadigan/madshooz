@@ -54,15 +54,6 @@
         }
     },
     {
-        "name": "Graffiti Sneaker",
-        "modelName": "graffiti-sneaker",
-        "cameraPos": {
-            "x": -0.3,
-            "y": 0.15,
-            "z": 0.25
-        }
-    },
-    {
         "name": "Glow Green Yeezy Slides",
         "modelName": "glow-green-yeezy-slides",
         "cameraPos": {
