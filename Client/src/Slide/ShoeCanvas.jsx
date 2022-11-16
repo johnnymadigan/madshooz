@@ -1,7 +1,7 @@
-import { Suspense } from 'react'
-import { Canvas, useLoader, useThree } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { Suspense } from 'react';
+import { OrbitControls } from '@react-three/drei';
+import { Canvas, useLoader, useThree } from '@react-three/fiber';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 function ShoeCanvas({modelName, cameraPos}) {
   return (
@@ -10,16 +10,17 @@ function ShoeCanvas({modelName, cameraPos}) {
       <ShoeModel modelName={modelName} cameraPos={cameraPos}/>
       <OrbitControls />
     </Canvas>
-  )
+  );
 }
 
 const ShoeModel = ({modelName, cameraPos}) => {
-  if (!modelName) modelName = "factors"; // fallback to default shoe
+  const defaultModel = "factors";
+  if (!modelName) modelName = defaultModel;
   let path = `./models/${modelName}.glb`;
-  const gltf = useLoader(GLTFLoader, path)
+  const gltf = useLoader(GLTFLoader, path); // loads .glb as well
 
-  // access THREE's camera...
-  // note: can only useThree inside Canvas component
+  // hook to access THREE's camera...
+  // note: can only useThree inside a canvas component
   useThree(({camera}) => {
     camera.position.x = cameraPos.x;
     camera.position.y = cameraPos.y;
@@ -35,7 +36,7 @@ const ShoeModel = ({modelName, cameraPos}) => {
     <Suspense fallback={null}>
       <primitive object={gltf.scene} />
     </Suspense>
-  )
+  );
 }
 
 const Lighting = () => (

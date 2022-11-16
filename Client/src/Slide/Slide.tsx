@@ -1,6 +1,6 @@
 import './Slide.scss';
-import { ShoeDto } from '../Shared/types';
 import SlideRow from './SlideRow';
+import { ShoeDto } from '../Shared/types';
 
 interface SlideProps { shoes: ShoeDto[] }
 

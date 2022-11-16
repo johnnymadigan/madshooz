@@ -6,14 +6,12 @@ import Footer from '../Footer/Footer';
 import Slide from '../Slide/Slide';
 
 function App() {
-  //#region HOOKS
   const [ shoeCollections, setShoeCollections] = useState<ShoeDto[][]>([]);
   useEffect(() => {
     GetAllShoes()
     .then(res => setShoeCollections(res))
     .catch(console.error);
   }, []);
-  //#endregion
 
   return (
     <div className="App">
